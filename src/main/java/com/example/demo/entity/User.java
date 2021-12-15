@@ -3,9 +3,10 @@ package com.example.demo.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
-import org.springframework.transaction.annotation.Transactional;
+import lombok.Data;
 
 @TableName("users")
+@Data
 public class User {
 
     @TableField("id")
@@ -17,73 +18,21 @@ public class User {
     @TableField("password")
     private String password;
 
-    @TableField("task")
-    private String task;
+    @TableField("fullname")
+    private String fullname;
 
-    @TableField("thestore")
-    private String thestore;
+    @TableField("phonenum")
+    private String phonenum;
 
-    @TableField("thecustomer")
-    private String thecustomer;
+    @TableField("address")
+    private String address;
 
-    public String getThestore() {
-        return thestore;
-    }
+    @TableField("role")
+    private String role;
 
-    public void setThestore(String thestore) {
-        this.thestore = thestore;
-    }
+    @TableField("company")
+    private String company;
 
-    public String getThecustomer() {
-        return thecustomer;
-    }
-
-    public void setThecustomer(String thecustomer) {
-        this.thecustomer = thecustomer;
-    }
-
-
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-
-
-
-    public String getTask() {
-        return task;
-    }
-
-    public void setTask(String task) {
-        this.task = task;
-    }
-
-
-
-
-
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password){
-        this.password = password;
-    }
-
-
-
+    @TableField("department")
+    private String department;
 }

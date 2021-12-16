@@ -1,12 +1,12 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.LoginVo;
 import com.example.demo.entity.User;
+import com.example.demo.entity.UsersResult;
 
 
 public interface LoginService {
 
-     LoginVo login(User user);
+     UsersResult login(User user);
 
      int updateuser(User user);
 

@@ -16,7 +16,7 @@ public class User {
     private String username;
 
     @TableField("password")
-    private String password;
+    private String passwd;
 
     @TableField("fullname")
     private String fullname;

@@ -1,13 +1,13 @@
 package com.example.demo.service.impl;
 
 import com.aliyun.oss.OSS;
-import com.example.demo.entity.LoginVo;
-import com.example.demo.entity.OssProperties;
-import com.example.demo.entity.User;
+import com.example.demo.entity.*;
 import com.example.demo.mapper.LoginMapper;
 import com.example.demo.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Arrays;
 
 
 @Service
@@ -23,29 +23,33 @@ public class LoginServiceImpl implements LoginService {
     OssProperties ossProperties;
 
     @Override
-    public LoginVo login(User user) {
+    public UsersResult login(User user) {
         String username = user.getUsername();
 
-        User user1 = mapper.getwdfls(username);
+        DataBean user1 = mapper.getwdfls(username);
         LoginVo dengluVo = new LoginVo();
+        UsersResult users = new UsersResult();
 
         if (user1 != null) {
-            String password = user.getPassword();
-            String dbPwd = user1.getPassword();
+            String password = user.getPasswd();
+            String dbPwd = user1.getPassWord();
             if (password.equals(dbPwd)) {
-                dengluVo.setCode(200);
-                dengluVo.setFlag(true);
-                dengluVo.setMsg("登陆成功");
-                return dengluVo;
+//                dengluVo.setCode(200);
+//                dengluVo.setFlag(true);
+//                dengluVo.setMsg("登陆成功");
+//                return dengluVo;
+                users.setCode("1");
+                users.setMsg("ok");
+                users.setData(Arrays.asList(user1));
             } else {
-                dengluVo.setCode(500);
-                dengluVo.setFlag(false);
-                dengluVo.setMsg("登陆失败");
+                users.setCode("2");
+                users.setMsg("no");
+                users.setData(Arrays.asList(user1));
             }
         } else {
             dengluVo.setMsg("登陆失败");
         }
-        return dengluVo;
+        return users;
     }
 
     @Override

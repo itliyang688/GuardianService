@@ -2,13 +2,16 @@ package com.example.demo.service;
 
 import com.example.demo.entity.User;
 import com.example.demo.entity.UsersResult;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 
 public interface LoginService {
 
      UsersResult login(User user);
 
-     int updateuser(User user);
+     UsersResult updateuser(User user);
 
-//    com.example.demo.entity.Result<String> uploadCompanyLogo(MultipartFile file) throws IOException;
+    UsersResult uploadCompanyLogo(MultipartFile file, String username) throws IOException;
 }

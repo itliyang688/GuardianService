@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.util.List;
+
 @TableName("users")
 @Data
 public class User {
@@ -35,4 +37,10 @@ public class User {
 
     @TableField("department")
     private String department;
+
+    @TableField("filepath")
+    private String filepath;
+
+    @TableField("menus")
+    private List<DataBean.MenusBean> menus;
 }

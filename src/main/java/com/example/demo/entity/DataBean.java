@@ -107,7 +107,7 @@ public class DataBean {
             this.menus = menus;
         }
 
-        public static class MenusBean {
+        public  class MenusBean {
             /**
              * menuId : 1
              * menuName : 任务

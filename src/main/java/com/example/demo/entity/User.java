@@ -42,5 +42,5 @@ public class User {
     private String filepath;
 
     @TableField("menus")
-    private List<DataBean.MenusBean> menus;
+    private List<DataBean> menus;
 }

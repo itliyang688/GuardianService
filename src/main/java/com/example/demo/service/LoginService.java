@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.entity.HomePage;
 import com.example.demo.entity.User;
 import com.example.demo.entity.UsersResult;
 import org.springframework.web.multipart.MultipartFile;
@@ -14,4 +15,6 @@ public interface LoginService {
      UsersResult updateuser(User user);
 
     UsersResult uploadCompanyLogo(MultipartFile file, String username) throws IOException;
+
+    HomePage homePageTask(User user);
 }

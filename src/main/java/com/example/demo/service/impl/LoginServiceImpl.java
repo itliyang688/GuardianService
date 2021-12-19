@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 
 @Service
@@ -124,6 +125,26 @@ public class LoginServiceImpl implements LoginService {
             usersResult.setMsg("no");
         }
         return usersResult;
+    }
+
+    @Override
+    public HomePage homePageTask(User user) {
+        HomePage homePage = new HomePage();
+        String username = user.getUsername();
+        DataBean user1 = mapper.getwdfls(username);
+        List<DataBeanone> home = mapper.homePageTask(user);
+        if (username.equals(user1)){
+            homePage.setCode("2");
+            homePage.setMsg("no");
+            homePage.setSize(12);
+        }else {
+            homePage.setCode("1");
+            homePage.setMsg("ok");
+            homePage.setSize(12);
+            homePage.setData(home);
+
+        }
+        return homePage;
     }
 
 

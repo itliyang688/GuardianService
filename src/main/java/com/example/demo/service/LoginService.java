@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.entity.Contactorsone;
 import com.example.demo.entity.HomePage;
 import com.example.demo.entity.User;
 import com.example.demo.entity.UsersResult;
@@ -17,4 +18,8 @@ public interface LoginService {
     UsersResult uploadCompanyLogo(MultipartFile file, String username) throws IOException;
 
     HomePage homePageTask(User user);
+
+    int store(Contactorsone contactors);
+
+
 }

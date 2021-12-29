@@ -13,9 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 
 @Service
@@ -138,6 +136,7 @@ public class LoginServiceImpl implements LoginService {
             homePage.setMsg("no");
             homePage.setSize(12);
         }else {
+
             homePage.setCode("1");
             homePage.setMsg("ok");
             homePage.setSize(12);
@@ -146,6 +145,65 @@ public class LoginServiceImpl implements LoginService {
         }
         return homePage;
     }
+
+    @Override
+    public int store(Contactorsone contactors) {
+        List<ContactorsBean> list = contactors.getContactors();
+
+       ContactorsBean contactorsBean = new ContactorsBean();
+
+        Iterator<ContactorsBean> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            ContactorsBean next = iterator.next();
+            String conType = next.getConType();
+            contactorsBean.setConType(conType);
+            String name = next.getName();
+            contactorsBean.setName(name);
+            int position = next.getPosition();
+            String qq = next.getQq();
+            contactorsBean.setQq(qq);
+            String remark = next.getRemark();
+            contactorsBean.setRemark(remark);
+            String telephone = next.getTelephone();
+            contactorsBean.setTelephone(next.getTelephone());
+            String weixin = next.getWeixin();
+            contactorsBean.setTelephone(weixin);
+        }
+
+        int i = mapper.addStore(contactors);
+        int i1 = mapper.addUserInt(contactorsBean);
+        if (i == 0 || i1 == 0) {
+            return 0;
+        } else {
+            return 1;
+        }
+
+    }
+
+    /*@Override
+    public LoginVo store(contactors contactors, thestote thestote) {
+       contactors.getContactorsId();
+       contactors.getConType();
+       contactors.getThestoreId();
+       contactors.getName();
+       contactors.getPosition();
+       contactors.getQq();
+       contactors.getRemark();
+       contactors.getTelephone();
+       contactors.getWeixin();
+
+       thestote.getThestoreId();
+       thestote.getFloor();
+       thestote.getIndustry_id();
+       thestote.getThestoreId();
+       thestote.getShop_address();
+       thestote.getShop_has_device();
+       thestote.getShop_lat();
+       thestote.getShop_look_type();
+       thestote.getShop_name();
+       thestote.getSize();
+       thestote.getUserName();
+    }*/
 
 
 }
